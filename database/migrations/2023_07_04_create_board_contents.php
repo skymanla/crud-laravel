@@ -21,8 +21,7 @@ return new class extends Migration
             $table->string('title', 100)->comment('제목')->nullable(false);
             $table->string('contents', 255)->comment('내용')->nullable(false);
             $table->string('is_delete')->default('N')->comment('삭제여부');
-            $table->string('writer', 20)->nullable(false)->comment('작성자');
-            $table->string('pwd', 255)->nullable(false)->comment('게시글 비밀번호');
+            $table->integer('user_id')->nullable(false)->comment('작성자');
             $table->string('ip', 100)->nullable(false)->comment('작성자 IP');
             $table->string('has_comment', 1)->default('Y')->comment('댓글 작성 가능 여부');
             $table->integer('hit_count')->default(0)->comment('hit count');
@@ -31,7 +30,7 @@ return new class extends Migration
             $table->datetime('deleted_dt')->nullable(true)->default(null)->comment('삭제일시');
             $table->index(['title']);
             $table->index(['contents']);
-            $table->index(['writer']);
+            $table->index(['user_id']);
             $table->index(['board_idx']);
             $table->index(['contents_category_idx']);
             $table->index(['created_dt']);

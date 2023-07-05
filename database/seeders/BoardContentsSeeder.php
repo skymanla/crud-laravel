@@ -20,8 +20,7 @@ class BoardContentsSeeder extends Seeder
                 'contents_category_idx' => 1,
                 'title' => Str::random(10),
                 'contents' => Str::random(16),
-                'writer' => Str::random(5),
-                'pwd' => Hash::make(Str::random(10)),
+                'user_id' => 1,
                 'ip' => '127.0.0.1'
             ],
             [
@@ -29,8 +28,7 @@ class BoardContentsSeeder extends Seeder
                 'contents_category_idx' => 1,
                 'title' => Str::random(10),
                 'contents' => Str::random(16),
-                'writer' => Str::random(5),
-                'pwd' => Hash::make(Str::random(10)),
+                'user_id' => 2,
                 'ip' => '127.0.0.1'
             ],
             [
@@ -38,8 +36,7 @@ class BoardContentsSeeder extends Seeder
                 'contents_category_idx' => 2,
                 'title' => Str::random(10),
                 'contents' => Str::random(16),
-                'writer' => Str::random(5),
-                'pwd' => Hash::make(Str::random(10)),
+                'user_id' => 3,
                 'ip' => '127.0.0.1'
             ],
             [
@@ -47,8 +44,7 @@ class BoardContentsSeeder extends Seeder
                 'contents_category_idx' => 1,
                 'title' => Str::random(10),
                 'contents' => Str::random(16),
-                'writer' => Str::random(5),
-                'pwd' => Hash::make(Str::random(10)),
+                'user_id' => 4,
                 'ip' => '127.0.0.1'
             ],
             [
@@ -56,8 +52,7 @@ class BoardContentsSeeder extends Seeder
                 'contents_category_idx' => 1,
                 'title' => Str::random(10),
                 'contents' => Str::random(16),
-                'writer' => Str::random(5),
-                'pwd' => Hash::make(Str::random(10)),
+                'user_id' => 5,
                 'ip' => '127.0.0.1'
             ],
         ]);

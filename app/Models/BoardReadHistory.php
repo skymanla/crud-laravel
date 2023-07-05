@@ -21,4 +21,14 @@ class BoardReadHistory extends Model
         $this->timestamps = false;
         $this->primaryKey = 'idx';
     }
+
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    public function boardContents()
+    {
+        return $this->hasOne(BoardContents::class, 'idx', 'board_contents_idx');
+    }
 }

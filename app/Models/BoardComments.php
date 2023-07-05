@@ -23,4 +23,9 @@ class BoardComments extends Model
     {
         return $this->hasOne(BoardContents::class, 'idx', 'board_contents_idx');
     }
+
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
 }

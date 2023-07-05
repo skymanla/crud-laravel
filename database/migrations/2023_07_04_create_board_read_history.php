@@ -16,6 +16,7 @@ return new class extends Migration
             $table->collation = 'utf8mb4_unicode_ci';
             $table->comment('게시판 읽기 히스토리');
             $table->increments('idx')->comment('pk');
+            $table->integer('user_id')->nullable(false)->comment('user.id');
             $table->string('ip', 100)->comment('ip')->nullable(false);
             $table->integer('board_contents_idx')->comment('board_contents.idx')->nullable(false);
             $table->dateTime('created_dt')->useCurrent()->comment('생성일시');

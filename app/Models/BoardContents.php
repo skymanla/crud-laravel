@@ -33,4 +33,9 @@ class BoardContents extends Model
     {
         return $this->hasOne(Board::class, 'idx', 'board_idx');
     }
+
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
 }
