@@ -51,9 +51,7 @@ class BoardController extends Controller
             'title' => 'required|string|max:20',
             'boardIdx' => 'required|integer',
             'contentCategoryIdx' => 'required|integer',
-            'contents' => 'required|string|max:255',
-            'writer' => 'required|string|max:10',
-            'pwd' => 'required|string|max:100'
+            'contents' => 'required|string|max:255'
         ]);
         if ($validator->fails()) {
             return $this->error(null, $validator->errors(), 400);
@@ -79,6 +77,14 @@ class BoardController extends Controller
     public function updateModifyContents(Request $request, $idx)
     {
         try {
+            $validator = Validator::make($request->all(), [
+                'title' => 'required|string|max:20',
+                'contentCategoryIdx' => 'required|integer',
+                'contents' => 'required|string|max:255'
+            ]);
+            if ($validator->fails()) {
+                throw new \Exception($validator->errors(), 400);
+            }
             $this->boardService->updateModifyContents($request, $idx);
             return $this->success(null, '게시글 수정이 완료되었습니다');
         } catch (\Exception $e) {
@@ -105,6 +111,12 @@ class BoardController extends Controller
     public function postWriteComments(Request $request, $contentsIdx)
     {
         try {
+            $validator = Validator::make($request->all(), [
+                'comments' => 'required|string|max:100'
+            ]);
+            if ($validator->fails()) {
+                throw new \Exception($validator->errors(), 400);
+            }
             $this->boardService->writeComment($request, $contentsIdx);
             return $this->success(null, '코멘트 등록이 완료되었습니다');
         } catch (\Exception $e) {
@@ -115,6 +127,12 @@ class BoardController extends Controller
     public function updateModifyComments(Request $request, $idx)
     {
         try {
+            $validator = Validator::make($request->all(), [
+                'comments' => 'required|string|max:100'
+            ]);
+            if ($validator->fails()) {
+                throw new \Exception($validator->errors(), 400);
+            }
             $this->boardService->updateModifyContents($request, $idx);
             return $this->success(null, '코멘트 수정이 완료되었습니다');
         } catch (\Exception $e) {
