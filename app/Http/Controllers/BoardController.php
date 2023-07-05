@@ -54,7 +54,7 @@ class BoardController extends Controller
             'contents' => 'required|string|max:255'
         ]);
         if ($validator->fails()) {
-            return $this->error(null, $validator->errors(), 400);
+            throw new \Exception($validator->errors(), 400);
         }
         try {
             $this->boardService->writeContents($request);
