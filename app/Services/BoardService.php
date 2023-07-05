@@ -209,10 +209,10 @@ class BoardService
         }
     }
 
-    public function modifyComments($request, $idx): void
+    public function updateModifyComments($request, $idx): void
     {
         try {
-            $this->isContentsOwner($idx, $request);
+            $this->isCommentOwner($idx, $request);
             DB::transaction(function () use ($request, $idx) {
                 BoardComments::where('idx', $idx)
                     ->update([
@@ -228,7 +228,7 @@ class BoardService
     public function deleteComments($request, $idx): void
     {
         try {
-            $this->isContentsOwner($idx, $request);
+            $this->isCommentOwner($idx, $request);
             DB::transaction(function () use ($request, $idx) {
                 BoardComments::where('idx', $idx)
                     ->update([

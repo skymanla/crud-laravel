@@ -133,7 +133,7 @@ class BoardController extends Controller
             if ($validator->fails()) {
                 throw new \Exception($validator->errors(), 400);
             }
-            $this->boardService->updateModifyContents($request, $idx);
+            $this->boardService->updateModifyComments($request, $idx);
             return $this->success(null, '코멘트 수정이 완료되었습니다');
         } catch (\Exception $e) {
             return $this->error(null, $e->getMessage(), $e->getCode());
